@@ -10,7 +10,15 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require best_in_place
+// require jquery.autogrowtextarea
+
+//= require tether
+//= require bootstrap
+//= require summernote
+
 //= require_tree .
+

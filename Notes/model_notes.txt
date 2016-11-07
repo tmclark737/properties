@@ -1,0 +1,36 @@
+
+rails g model investor tys_2015_income:decimal tys_2016_income:decimal tracys_income:decimal 23rd_st_value:decimal existing_debt:decimal checking_savings:decimal retirement_savings:decimal maxium_cash_out_loan_amount:decimal
+
+
+rails g model property address:string city:string state:string zip:string photo:attachment loan_type:integer purchase_price:decimal down_payment_pct:decimal annual_gross_rental_income:decimal stated_residence:integer actual_residence:integer investor:references
+
+
+
+
+
+
+
+Property Calculations
+
+
+
+
+
+
+
+
+
+
+
+
+
+edit form
+
+
+
+enum loan type: commercial, residential, cash_out_residential
+
+
+Input model calculations
+total annual income
+total monthly income

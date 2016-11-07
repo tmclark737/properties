@@ -1,0 +1,5 @@
+Investors<br>
+
+<% @investors.each do |investor| %>
+	<%= link_to investor.name, edit_investor_path(investor.id) %><br>
+<% end %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tys_2015_income: 9.99
+  tys_2016_income: 9.99
+  tracys_income: 9.99
+  23rd_st_value: 9.99
+  existing_debt: 9.99
+  checking_savings: 9.99
+  retirement_savings: 9.99
+  maxium_cash_out_loan_amount: 9.99
+
+two:
+  tys_2015_income: 9.99
+  tys_2016_income: 9.99
+  tracys_income: 9.99
+  23rd_st_value: 9.99
+  existing_debt: 9.99
+  checking_savings: 9.99
+  retirement_savings: 9.99
+  maxium_cash_out_loan_amount: 9.99

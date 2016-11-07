@@ -84,7 +84,7 @@ group :development do
 
 	gem 'better_errors'
 	gem 'binding_of_caller'
-	gem 'guard-livereload', '~> 2.4', require: false
+	# gem 'guard-livereload', '~> 2.4', require: false
 
 
 	# gem 'rails_real_favicon'
@@ -96,28 +96,28 @@ group :development do
 	# gem 'flamegraph'
 end
 
-group :development, :test do 
-	gem 'pry'
-	gem 'pry-rails'
-	gem "rspec-rails"
-	gem 'rspec-activemodel-mocks'
+# group :development, :test do 
+# 	gem 'pry'
+# 	gem 'pry-rails'
+# 	gem "rspec-rails"
+# 	gem 'rspec-activemodel-mocks'
 
 	
-	#start guard with bundle exec guard init rspec, bundle 
-	gem "guard-rspec"
-end
+# 	#start guard with bundle exec guard init rspec, bundle 
+# 	gem "guard-rspec"
+# end
 
-group :test, :darwin do
-  	gem 'rb-fsevent'
-end
+# group :test, :darwin do
+#   	gem 'rb-fsevent'
+# end
 
-group :test do
-  gem "faker"
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "shoulda-matchers", require: false
-  gem 'rails_12factor', group: :production
-end
+# group :test do
+#   gem "faker"
+#   gem "factory_girl_rails"
+#   gem "capybara"
+#   gem "shoulda-matchers", require: false
+#   gem 'rails_12factor', group: :production
+# end
 
 
 

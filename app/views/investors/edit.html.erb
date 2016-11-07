@@ -1,0 +1,32 @@
+<div class = "col-md-6 offset-md-3">
+
+<%= simple_form_for @investor, wrapper: :horizontal_form do |f| %>
+	<h1>
+        <%= link_to investors_path, :class => 'btn btn-large btn-primary', method: :get do %>
+          <i class="material-icons">arrow_back</i>
+        <% end %>
+        Edit <%= @investor.name %>
+    </h1>
+	<hr>
+	<%= f.input :name, label: "Name" %>
+	<%= f.input :tys_2015_income, label: "Ty's 2015 Income", as: :decimal %>
+	<%= f.input :tys_2016_income, label: "Ty's 2016 Income", as: :decimal %>
+	<%= f.input :tracys_income, label: "Tracy's Income", as: :decimal %>
+	<%= f.input :existing_home_value, label: "Value of 2762-2764 23rd St.", as: :decimal %>
+	<%= f.input :existing_debt, label: "Existing Debt", as: :decimal %>
+	<%= f.input :checking_savings, label: "Checking Savings", as: :decimal %>
+	<%= f.input :retirement_savings, label: "Retirement Savings", as: :decimal %>
+	<%= f.input :maxium_cash_out_loan_amount, label: "Maximum Cash Out Loan Amount", as: :decimal %>
+
+	<div class = "pull-xs-right">
+		<%= f.submit "Save", class: 'btn btn-success', style: "margin-left:5px;" %>
+	</div>
+
+
+<% end %>
+	<div class = "pull-xs-right">
+			<%= button_to('Cancel', investors_path, :class => 'btn btn-large btn-primary', :method => :get, style: "margin-left:5px;" )  %>
+	</div>
+	<br>
+	<br>
+	<br>
