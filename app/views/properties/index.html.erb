@@ -1,0 +1,30 @@
+<div id="test-id" class = "col-md-8 offset-md-2">
+		<h1>Properties</h1>
+		<% @properties.each do |property| %>
+			<div class="card project-btn">
+				<a href = <%= edit_property_path(property) %>>
+				<div class="row">
+					<div class="container ">
+					
+						<div class="col-md-2 no-gutter">
+							
+							<% if property.photo.present? then %>
+								<%= image_tag(property.photo.url(:small), size: "100x100", :class => 'thumbnail pull-left') %>
+							<% else %>
+								<%= image_tag("project_default.png", size: "100x100", :class => 'thumbnail pull-left') %>
+							<% end %>
+							</div>
+						
+
+						<div class="col-md-6 dark-text">
+							<h4 ><%= property.name %></h4>
+							<%= property.address %><br>
+						</div>
+				</a> 
+
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+</div

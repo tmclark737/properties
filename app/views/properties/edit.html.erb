@@ -1,0 +1,56 @@
+<div class = "col-md-6 offset-md-3">
+
+<%= simple_form_for @property, wrapper: :horizontal_form do |f| %>
+	<h1>
+        <%= link_to properties_path, :class => 'btn btn-large btn-primary', method: :get do %>
+          <i class="material-icons">arrow_back</i>
+        <% end %>
+        Edit <%= @property.name %>
+    </h1>
+	<hr>
+	<%= f.input :investor_id, label: "Investor", collection: Investor.all.order('name ASC'), :label_method => :name, :value_method => :id, :include_blank => false %>
+	<%= f.input :name, label: "Name" %>
+	<%= f.input :address, label: "Address" %>
+	<%= f.input :city, label: "City" %>
+	<%= f.input :state, label: "State" %>
+	<%= f.input :zip, label: "Zip" %>
+
+	<%= f.input :purchase_price, label: "Purchase Price" %>
+	<%= f.input :down_payment_pct, label: "Down Payment Percent" %>
+	<%= f.input :annual_gross_rental_income, label: "Annual Gross Rental Income" %>
+	<br>
+
+    <%= f.input :loan_type, label: "Loan Type", collection: Property.loan_types.keys.map {|type| [type.titleize, type]} %>
+    <%= f.input :stated_residence, label: "Stated Residence", collection: Property.stated_residences.keys.map {|type| [type.titleize, type]} %>
+    <%= f.input :actual_residence, label: "Actual Home", collection: Property.actual_residences.keys.map {|type| [type.titleize, type]} %>
+
+    <h2>Picture</h2>
+      <p>
+        <%= f.label "Insert a picture of the building here:" %><br>
+        <%= f.file_field :photo %>
+      </p>
+
+	<div class = "pull-xs-right">
+		<%= f.submit "Save", class: 'btn btn-success', style: "margin-left:5px;" %>
+	</div>
+
+
+<% end %>
+	<div class = "pull-xs-right">
+			<%= button_to('Cancel', investors_path, :class => 'btn btn-large btn-primary', :method => :get, style: "margin-left:5px;" )  %>
+	</div>
+	<br>
+	<br>
+	<br>
+
+
+
+
+
+
+
+
+
+
+
+
