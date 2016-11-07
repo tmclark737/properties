@@ -4,8 +4,21 @@ class PropertiesController < ApplicationController
 		@properties = Property.all
 	end
 
+	def new
+		@property = Property.new
+	end
+
 	def edit
 		@property = Property.find(params[:id])
+	end
+
+	def create
+		@property = Property.new(property_params)
+		if @property.save
+			redirect_to action: "index"
+		else
+			render 'new'
+		end
 	end
 
 	def update
