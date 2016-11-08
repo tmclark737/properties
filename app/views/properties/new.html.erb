@@ -17,8 +17,8 @@
 
 	<%= f.input :purchase_price, label: "Purchase Price" %>
 	<%= f.input :down_payment_pct, label: "Down Payment Percent" %>
-	<%= f.input :annual_gross_rental_income, label: "Annual Gross Rental Income" %>
-	<br>
+	<%= f.input :monthly_gross_rental_income, label: "Monthly Gross Rental Income" %>
+	<%= f.input :omi_unit_rent, label: "OMI Unit Rent Income" %>
 
 	<%= f.input :sell_existing, label: "Sell Existing", collection: Property.sell_existings.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :loan_type, label: "Loan Type", collection: Property.loan_types.keys.map {|type| [type.titleize, type]} %>

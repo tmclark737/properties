@@ -25,7 +25,7 @@ class PropertiesController < ApplicationController
 		@property = Property.find(params[:id])
 
 		if @property.update(property_params)
-			redirect_to action: "index"
+			redirect_to action: "edit"
 		else
 			render 'edit'
 		end
@@ -35,6 +35,6 @@ class PropertiesController < ApplicationController
 private
   def property_params
     params.require(:property).permit(:name, :address, :city, :state, :zip, :photo, :loan_type, :purchase_price, :down_payment_pct, 
-    	:annual_gross_rental_income, :stated_residence, :actual_residence, :investor_id, :sell_existing)
+    	:monthly_gross_rental_income, :stated_residence, :actual_residence, :investor_id, :sell_existing, :omi_unit_rent)
   end
 end

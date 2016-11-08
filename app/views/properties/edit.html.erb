@@ -1,4 +1,4 @@
-<div class = "col-md-6 offset-md-3">
+<div class = "col-md-6">
 
 <%= simple_form_for @property, wrapper: :horizontal_form do |f| %>
 	<h1>
@@ -17,13 +17,18 @@
 
 	<%= f.input :purchase_price, label: "Purchase Price" %>
 	<%= f.input :down_payment_pct, label: "Down Payment Percent" %>
-	<%= f.input :annual_gross_rental_income, label: "Annual Gross Rental Income" %>
-	<br>
+	<%= f.input :monthly_gross_rental_income, label: "Monthly Gross Rental Income" %>
+	<%= f.input :omi_unit_rent, label: "OMI Unit Rent Income" %>
+
+	
+
 
 	<%= f.input :sell_existing, label: "Sell Existing", collection: Property.sell_existings.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :loan_type, label: "Loan Type", collection: Property.loan_types.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :stated_residence, label: "Stated Residence", collection: Property.stated_residences.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :actual_residence, label: "Actual Home", collection: Property.actual_residences.keys.map {|type| [type.titleize, type]} %>
+
+
 
     <h2>Picture</h2>
       <p>
@@ -38,15 +43,27 @@
 
 <% end %>
 	<div class = "pull-xs-right">
-			<%= button_to('Cancel', investors_path, :class => 'btn btn-large btn-primary', :method => :get, style: "margin-left:5px;" )  %>
+			<%= button_to('All Properties', properties_path, :class => 'btn btn-large btn-primary', :method => :get, style: "margin-left:5px;" )  %>
 	</div>
 	<br>
 	<br>
 	<br>
 
+</div>
 
 
+<div class = "col-md-6">
+	Interest Rate<br>
+	<%= @property.interest_rate %><br>
 
+	Total Qualified Income<br>
+	<%= @property.total_qualified_income.round() %><br>
+	Total Monthly Payment<br>
+	<%= @property.total_monthly_payment.round() %><br>
+	Total Monthly Rent<br>
+	<%= @property.total_monthly_rent.round() %><br>
+
+</div>
 
 
 

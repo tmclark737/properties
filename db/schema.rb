@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108013356) do
+ActiveRecord::Schema.define(version: 20161108020547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,13 +44,14 @@ ActiveRecord::Schema.define(version: 20161108013356) do
     t.integer  "loan_type"
     t.decimal  "purchase_price"
     t.decimal  "down_payment_pct"
-    t.decimal  "annual_gross_rental_income"
+    t.decimal  "monthly_gross_rental_income"
     t.integer  "stated_residence"
     t.integer  "actual_residence"
     t.integer  "investor_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "sell_existing"
+    t.decimal  "omi_unit_rent"
   end
 
   add_index "properties", ["investor_id"], name: "index_properties_on_investor_id", using: :btree

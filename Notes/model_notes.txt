@@ -8,7 +8,9 @@ rails g model property address:string city:string state:string zip:string photo:
 rails g migration AddSellExistingToProperty sell_existing:integer
 rails g migration AddMyRentalPaymentToInvestor my_rental_payment:decimal
 
+rails g migration RenameAnnualGrossRentalIncome
 
+rails g migration AddColumnToProperty omi_unit_rent:decimal
 
 
 Property Calculations

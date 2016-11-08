@@ -6,7 +6,7 @@ class Property < ActiveRecord::Base
 	enum actual_residence: [:existing_home, :new_home, :rental_home]
 
 	validates :name, :address, :city, :state, :zip, :loan_type, :sell_existing, :stated_residence, :actual_residence, presence: true
-	validates :purchase_price, :down_payment_pct, :annual_gross_rental_income, :investor_id, 
+	validates :purchase_price, :down_payment_pct, :monthly_gross_rental_income, :investor_id, :omi_unit_rent,
 		numericality: { only_decimal: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100000000}
 
 
@@ -69,11 +69,11 @@ class Property < ActiveRecord::Base
   end
 
   def new_unit_monthly_rent
-    self.annual_gross_rental_income / 12.0
+    self.monthly_gross_rental_income 
   end
 
   def total_monthly_rent
-    existing_unit_rent + new_unit_monthly_rent
+    existing_unit_rent + new_unit_monthly_rent - self.omi_unit_rent
   end
 
   def qualified_existing_unit_rent
