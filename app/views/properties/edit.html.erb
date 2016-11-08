@@ -20,9 +20,6 @@
 	<%= f.input :monthly_gross_rental_income, label: "Monthly Gross Rental Income" %>
 	<%= f.input :omi_unit_rent, label: "OMI Unit Rent Income" %>
 
-	
-
-
 	<%= f.input :sell_existing, label: "Sell Existing", collection: Property.sell_existings.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :loan_type, label: "Loan Type", collection: Property.loan_types.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :stated_residence, label: "Stated Residence", collection: Property.stated_residences.keys.map {|type| [type.titleize, type]} %>
@@ -55,6 +52,10 @@
 <div class = "col-md-6">
 	Interest Rate<br>
 	<%= @property.interest_rate %><br>
+	Down Payment<br>
+	<%= @property.down_payment %><br>
+	Reserves<br>
+	<%= @property.cash_reserves %><br>
 
 	Total Qualified Income<br>
 	<%= @property.total_qualified_income.round() %><br>
