@@ -13,6 +13,8 @@ rails g migration RenameAnnualGrossRentalIncome
 rails g migration AddColumnToProperty omi_unit_rent:decimal
 
 
+rails g migration AddFieldsToProperty notes:text number_of_units:integer link:string
+
 Property Calculations
 
 

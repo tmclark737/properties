@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108020547) do
+ActiveRecord::Schema.define(version: 20161108063938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(version: 20161108020547) do
     t.datetime "updated_at",                  null: false
     t.integer  "sell_existing"
     t.decimal  "omi_unit_rent"
+    t.text     "notes"
+    t.integer  "number_of_units"
+    t.string   "link"
   end
 
   add_index "properties", ["investor_id"], name: "index_properties_on_investor_id", using: :btree

@@ -25,6 +25,11 @@
     <%= f.input :stated_residence, label: "Stated Residence", collection: Property.stated_residences.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :actual_residence, label: "Actual Home", collection: Property.actual_residences.keys.map {|type| [type.titleize, type]} %>
 
+    
+    <%= f.input :number_of_units, label: "Number of Units" %>
+    <%= f.input :link, label: "Link" %>
+    <%= f.input :notes, label: "Notes" %>
+
     <h2>Picture</h2>
       <p>
         <%= f.label "Insert a picture of the building here:" %><br>
