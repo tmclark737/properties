@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107205156) do
+ActiveRecord::Schema.define(version: 20161108013356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161107205156) do
     t.decimal  "maxium_cash_out_loan_amount"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.decimal  "my_rental_payment"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20161107205156) do
     t.integer  "investor_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "sell_existing"
   end
 
   add_index "properties", ["investor_id"], name: "index_properties_on_investor_id", using: :btree

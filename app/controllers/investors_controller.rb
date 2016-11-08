@@ -22,7 +22,7 @@ class InvestorsController < ApplicationController
 private
   def investor_params
     params.require(:investor).permit(:name, :tys_2015_income, :tys_2016_income, :tracys_income, :existing_home_value, 
-    	:existing_debt, :checking_savings, :retirement_savings, :maxium_cash_out_loan_amount)
+    	:existing_debt, :checking_savings, :retirement_savings, :maxium_cash_out_loan_amount, :my_rental_payment)
   end
 end
 

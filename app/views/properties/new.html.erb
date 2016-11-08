@@ -20,6 +20,7 @@
 	<%= f.input :annual_gross_rental_income, label: "Annual Gross Rental Income" %>
 	<br>
 
+	<%= f.input :sell_existing, label: "Sell Existing", collection: Property.sell_existings.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :loan_type, label: "Loan Type", collection: Property.loan_types.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :stated_residence, label: "Stated Residence", collection: Property.stated_residences.keys.map {|type| [type.titleize, type]} %>
     <%= f.input :actual_residence, label: "Actual Home", collection: Property.actual_residences.keys.map {|type| [type.titleize, type]} %>
