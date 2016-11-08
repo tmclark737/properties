@@ -55,8 +55,6 @@ class Property < ActiveRecord::Base
     self.total_cash - self.down_payment
   end
 
-
-
   def existing_unit_rent
     rent = 0
     if self.keep_23rd_st? && self.existing_home?
@@ -132,6 +130,9 @@ class Property < ActiveRecord::Base
     mortgage_payment + ((property_tax + property_insurance) / 12.0)
   end
 
+  def monthly_cash_flow
+    total_monthly_rent - total_monthly_payment
+  end
 
 private
     def pmt(rate, nper, pv, fv=0, type=0)
