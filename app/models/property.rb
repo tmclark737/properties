@@ -110,7 +110,7 @@ class Property < ActiveRecord::Base
   def existing_property_debt
     debt = 0
     if self.keep_23rd_st?
-      debt = down_payment + self.existing_debt
+      debt = down_payment + self.investor.existing_debt
     end
     debt
   end
