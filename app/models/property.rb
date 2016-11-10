@@ -10,6 +10,8 @@ class Property < ActiveRecord::Base
 		numericality: { only_decimal: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100000000}
 
 
+   validates :purchase_price, :numericality => { :less_than => 0}, :if => :no_down_payment?
+
   	has_attached_file :photo, :styles => { :small => "150x150", :medium => "500x500"  },
                       :url  => "/ttc-properties/projects/photos/000/000/:id/:style/:basename.:extension",
                       :path => "/properties/photos/000/000/:id/:style/:basename.:extension",
@@ -33,6 +35,9 @@ class Property < ActiveRecord::Base
 	    {:bucket => Figaro.env.S3_BUCKET, :access_key_id =>  Figaro.env.S3_ACCESS_KEY_ID, :secret_access_key =>  Figaro.env.S3_SECRET_ACCESS_KEY}
 	end
 
+  def no_down_payment?
+    down_payment < self.investor.maximum_cash_out
+  end
 
   def interest_rate
     rates = {"commercial" => 0.04625, "jumbo_residential" => 0.03875, "cash_out_residential" => 0.04625, "residential" => 0.0375}
@@ -105,7 +110,7 @@ class Property < ActiveRecord::Base
   def existing_property_debt
     debt = 0
     if self.keep_23rd_st?
-      debt = self.investor.maximum_cash_out
+      debt = down_payment + self.existing_debt
     end
     debt
   end
