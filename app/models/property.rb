@@ -40,7 +40,11 @@ class Property < ActiveRecord::Base
 	end
 
   def ensure_down_payment_available?
-    if down_payment > self.investor.maximum_cash_out
+    if self.keep_23rd_st? && down_payment > self.investor.maximum_cash_out
+      errors.add(:down_payment_pct, 'Not enough money for down payment.')
+    end
+
+    if self.sell_23rd_st? && down_payment > self.investor.building_equity
       errors.add(:down_payment_pct, 'Not enough money for down payment.')
     end
   end
