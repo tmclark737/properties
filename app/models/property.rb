@@ -36,7 +36,7 @@ class Property < ActiveRecord::Base
 	end
 
   def no_down_payment?
-    down_payment < self.investor.maximum_cash_out
+    down_payment < (self.investor.maximum_cash_out - self.investor.existing_debt)
   end
 
   def interest_rate
