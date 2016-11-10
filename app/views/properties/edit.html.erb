@@ -1,6 +1,13 @@
 <div class = "col-md-6">
 
 <%= simple_form_for @property, wrapper: :horizontal_form do |f| %>
+	<% if @property.errors.any? %>
+		<div class="alert alert-danger">
+		    <% @property.errors.full_messages.each do |msg| %>å
+		      <%= msg %>
+		    <% end %>
+	    </div>
+	<% end %>
 	<h1>
         <%= link_to properties_path, :class => 'btn btn-large btn-primary', method: :get do %>
           <i class="material-icons">arrow_back</i>
