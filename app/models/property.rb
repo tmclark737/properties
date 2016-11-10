@@ -115,7 +115,14 @@ class Property < ActiveRecord::Base
   end
 
   def mortgage_payment
-    -pmt(interest_rate/12.0, 30*12, new_property_debt)
+    if self.keep_23rd_st?
+      home_mortgage = -pmt(interest_rate/12.0, 30*12, total_financed)
+      rental_mortgage = -pmt(interest_rate/12.0, 30*12, new_property_debt)
+      payment = home_mortgage + rental_mortgage
+    else
+      payment = -pmt(interest_rate/12.0, 30*12, new_property_debt)
+    end
+    payment
   end
 
   def property_tax
