@@ -1,7 +1,8 @@
 class PropertiesController < ApplicationController
 	
 	def index
-		@properties = Property.all
+		# @properties = Property.all
+		@properties = Property.all.sort_by(&:monthly_cash_flow).reverse
 	end
 
 	def new
