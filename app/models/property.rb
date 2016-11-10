@@ -10,7 +10,11 @@ class Property < ActiveRecord::Base
 		numericality: { only_decimal: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100000000}
 
 
-   validates :purchase_price, :numericality => { :less_than => 0}, :if => :no_down_payment?
+   # validates :purchase_price, :numericality => { :less_than => 0}, :if => :no_down_payment?
+
+    validate :ensure_down_payment_available?
+
+
 
   	has_attached_file :photo, :styles => { :small => "150x150", :medium => "500x500"  },
                       :url  => "/ttc-properties/projects/photos/000/000/:id/:style/:basename.:extension",
@@ -35,8 +39,10 @@ class Property < ActiveRecord::Base
 	    {:bucket => Figaro.env.S3_BUCKET, :access_key_id =>  Figaro.env.S3_ACCESS_KEY_ID, :secret_access_key =>  Figaro.env.S3_SECRET_ACCESS_KEY}
 	end
 
-  def no_down_payment?
-    down_payment < (self.investor.maximum_cash_out - self.investor.existing_debt)
+  def ensure_down_payment_available?
+    if down_payment > (self.investor.maximum_cash_out - self.investor.existing_debt)
+      errors.add(:down_payment_pct, 'Not enough money for down payment.')
+    end
   end
 
   def interest_rate
